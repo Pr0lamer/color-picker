@@ -49,29 +49,6 @@ export default function ColorPicker(){
         });
     }
 
-
-    /*function onCancel(){
-        setValue(prevValue =>{
-            if(prevVal===value){
-                return {
-                    ...prevValue,
-                    
-                    ...prevVal,
-                    isShown : true
-                };
-            }
-            else{
-                return {
-                    ...prevValue,
-                    
-                    ...prevVal,
-                    isShown : false
-                };
-            }
-            
-        });
-
-    }*/
     function onCancel(){
         setValue(prevValue =>{
             
@@ -95,13 +72,6 @@ export default function ColorPicker(){
         });
     }
     
-    /*let isShown = true;
-    function onSlidersBlockToggle(){
-        console.log(isShown);
-        isShown = isShown ? false : true;
-    }*/
-    
-
     return (
         <>
             <div className="square" style={{backgroundColor: `rgb(${value.red}, ${value.green}, ${value.blue})`}}></div>
