@@ -40,7 +40,7 @@ export default function ColorPicker(){
         event.preventDefault();
 
         //prevCount = usePrevious(value);
-
+        
         setValue(prevValue =>{
             return {
                 ...prevValue,
@@ -50,13 +50,37 @@ export default function ColorPicker(){
     }
 
 
+    /*function onCancel(){
+        setValue(prevValue =>{
+            if(prevVal===value){
+                return {
+                    ...prevValue,
+                    
+                    ...prevVal,
+                    isShown : true
+                };
+            }
+            else{
+                return {
+                    ...prevValue,
+                    
+                    ...prevVal,
+                    isShown : false
+                };
+            }
+            
+        });
+
+    }*/
     function onCancel(){
         setValue(prevValue =>{
+            
             return {
                 ...prevValue,
                 
                 ...prevVal,
-                isShown : false
+                isShown: false
+                
             };
         });
 
