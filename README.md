@@ -15,11 +15,7 @@ cd [local repository]
   },
   
 //Step 4: 
-/* Delete the node_modules folder and any 'lock' files such as 
-yarn.lock or package-lock.json if present.*/
-
-//Step 5: 
 npm install
 
-//Step 6:
+//Step 5:
 npm start
