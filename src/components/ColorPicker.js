@@ -7,7 +7,7 @@ export default function ColorPicker(){
             red: 50,
             green: 50,
             blue: 50,
-            isShown: true
+            isShown: false
         }
     );
  
@@ -22,7 +22,7 @@ export default function ColorPicker(){
         
     }
 
-    let prevCount = usePrevious(value);
+    let prevVal = usePrevious(value);
     
     function usePrevious(value) {
         // The ref object is a generic container whose current property is mutable ...
@@ -54,13 +54,28 @@ export default function ColorPicker(){
         setValue(prevValue =>{
             return {
                 ...prevValue,
-                ...prevCount
+                
+                ...prevVal,
+                isShown : false
             };
         });
-        console.log(prevCount);
+
     }
 
-
+    function onSlidersBlockToggle(){
+        setValue(prevValue=>{
+            return {
+                ...prevValue,
+                isShown: !prevValue.isShown
+            };
+        });
+    }
+    
+    /*let isShown = true;
+    function onSlidersBlockToggle(){
+        console.log(isShown);
+        isShown = isShown ? false : true;
+    }*/
     
 
     return (
@@ -68,14 +83,22 @@ export default function ColorPicker(){
             <div className="square" style={{backgroundColor: `rgb(${value.red}, ${value.green}, ${value.blue})`}}></div>
            
             <form className="form" onSubmit={handleSubmit}>
-                <RangeInput name="red" handleOnChange={print} value={value.red}/>
+                {
+                    value.isShown &&
+                    <div className="form--sliders-box">
+                        <RangeInput name="red" handleOnChange={print} value={value.red}/>
+                        
+                        <RangeInput name="green" handleOnChange={print} value={value.green}/>
+                        <RangeInput name="blue" handleOnChange={print} value={value.blue}/>
+                    </div>
+                }
                 
-                <RangeInput name="green" handleOnChange={print} value={value.green}/>
-                <RangeInput name="blue" handleOnChange={print} value={value.blue}/>
                 <div className="form--buttons-box">
                     <button type="button" className="form--buttons" onClick={onCancel}>Cancel</button>
                     <button className="form--buttons">Submit</button>
-                    
+                    <button type="button" className="form--buttons" onClick={onSlidersBlockToggle}>
+                        {value.isShown ? "Hide" : "Show"}
+                    </button>
                 </div>
                 
             </form>
