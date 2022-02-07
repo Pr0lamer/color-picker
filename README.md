@@ -1,11 +1,11 @@
-//Step 1:
+Step 1:
 git clone [repository url]
 
-//Step 2:
+Step 2:
 cd [local repository]
 
-//Step 3:
-//Check package.json file and ensure scripts are notated as below:
+Step 3:
+Check package.json file and ensure scripts are notated as below:
 
 "scripts": {
     "start": "react-scripts start",
@@ -14,8 +14,8 @@ cd [local repository]
     "eject": "react-scripts eject"
   },
   
-//Step 4: 
+Step 4: 
 npm install
 
-//Step 5:
+Step 5:
 npm start
