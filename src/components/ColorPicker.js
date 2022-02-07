@@ -56,7 +56,12 @@ export default function ColorPicker(){
                 ...prevValue,
                 
                 ...prevVal,
-                isShown: false
+
+                // couldn't make the cancel button to hide the sliders properly
+                // but I had some results with "isShown: false" below
+                // didn't like the outcome so I commented it
+
+                //isShown: false
                 
             };
         });
